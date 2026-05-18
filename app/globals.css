@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sky: #18AEEA;
+  --navy: #073B5C;
+  --light-blue: #e8f6fd;
+  --muted: #6b8fa6;
+  --border: #e0edf5;
+  --bg: #f0f8ff;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+html { font-size: 17px; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.amh { font-family: 'Noto Sans Ethiopic', sans-serif; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.page-enter { animation: slideIn 0.22s ease-out; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-hover { transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
+.card-hover:hover { transform: translateY(-2px); border-color: var(--sky) !important; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #18AEEA, #073B5C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--sky);
+  outline-offset: 0;
+  border-color: var(--sky) !important;
+}
+
+@keyframes bellPulse {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+}
+
+.toast { animation: toastIn 0.3s ease-out; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.4s ease-out both; }
+.fade-up-1 { animation-delay: 0.05s; }
+.fade-up-2 { animation-delay: 0.1s; }
+.fade-up-3 { animation-delay: 0.15s; }
+.fade-up-4 { animation-delay: 0.2s; }
+
+/* Play button triangle */
+.play-triangle::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #18AEEA;
+  margin-left: 4px;
+  display: block;
+}
